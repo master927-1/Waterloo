@@ -37,9 +37,9 @@ function authScreen(message="") {
     let result;
     if(signup){
       if(!username || username.length<3){$("#authError").textContent="Choose a username with at least 3 characters.";return;}
-      result=await supabase.auth.signUp({email,password,data:{username}});
+      result=await supabase.auth.signUp({email,password,data:{username},options:{emailRedirectTo:`${window.location.origin}${window.location.pathname}`}});
       if(!result.error && result.data.user && result.data.session) await boot();
-      else if(!result.error) $("#authError").textContent="Account created. Check your email if confirmation is enabled.";
+      else if(!result.error) $("#authError").textContent="Account created. Check your email, then return to Waterloo and log in.";
     } else {
       result=await supabase.auth.signInWithPassword({email,password});
       if(result.error) $("#authError").textContent=result.error.message; else await boot();
