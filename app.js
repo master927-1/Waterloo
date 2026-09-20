@@ -25,6 +25,7 @@ function authScreen(message="") {
     <div id="confirmWrap" class="field" style="display:none"><label>USERNAME</label><input id="username" maxlength="20" placeholder="Your public username"></div>
     <div id="authError" class="error">${escapeHtml(message)}</div>
     <button class="primary" id="authButton">${configured ? "Log in" : "Set up backend first"}</button>
+    <button type="button" class="smallbtn" id="resendAuth" style="width:100%;margin-top:8px;display:none">Resend verification email</button>
     <p style="font-size:10px;text-align:center">Waterloo uses Supabase Auth + Postgres for real accounts and real users.</p>
   </form></div>`;
   let signup = false;
@@ -42,7 +43,7 @@ function authScreen(message="") {
       else if(!result.error) $("#authError").textContent="Account created. Check your email, then return to Waterloo and log in.";
     } else {
       result=await supabase.auth.signInWithPassword({email,password});
-      if(result.error) $("#authError").textContent=result.error.message; else await boot();
+      if(result.error){ $("#authError").textContent=result.error.message; if(/confirm|verified/i.test(result.error.message)) $("#resendAuth").style.display="block"; } else await boot();
     }
   };
 }
