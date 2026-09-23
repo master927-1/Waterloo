@@ -9,3 +9,11 @@
 body.studio-active{overflow:hidden}.studio-active .topbar,.studio-active .sidebar,.studio-active .main{overflow:hidden}.studio-active .main{padding:8px}.studio-active .page-title,.studio-active .subtitle{display:none}.studio{height:calc(100vh - 74px);display:flex;flex-direction:column;overflow:hidden}.studio-grid{flex:1;min-height:0;overflow:hidden}.studio-panel{min-height:0;overflow:auto}.viewport-panel{min-height:0}.viewport{min-height:0}.viewport canvas{min-height:0}.script{flex:none}
 .play-active{overflow:hidden}.play-active .play-screen{position:fixed;inset:0;width:100vw;height:100dvh}.play-screen{touch-action:none}.play-top{flex:none}.play-screen canvas{min-height:0;touch-action:none}
 @media(max-width:680px){body.studio-active .topbar{display:none}body.studio-active .workspace{display:block;min-height:100dvh}body.studio-active .sidebar{display:none}body.studio-active .main{padding:0;width:100vw;height:100dvh;overflow:hidden}.studio{height:100dvh;border:0}.ribbon{flex:none}.ribbon-tabs{height:38px;overflow-x:auto;white-space:nowrap}.ribbon-tabs button{min-width:70px;height:37px}.ribbon-tools{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));max-height:110px;overflow:auto}.toolgroup{border:0;padding:0;display:contents}.toolgroup button{min-height:34px}.toolgroup.right{display:flex;grid-column:1/-1}.mode-switch{flex:none}.studio-grid{display:block;overflow:hidden}.studio-panel.toolbox{display:none}.studio-panel.explorer{display:none}.viewport-panel{height:calc(100dvh - 230px);min-height:300px}.viewport{height:calc(100% - 120px);min-height:220px}.viewport canvas{height:100%;min-height:220px}.script{height:120px}.script textarea{height:89px}.play-top{height:48px;padding-top:env(safe-area-inset-top);box-sizing:content-box}.play-screen canvas{height:calc(100dvh - 48px - env(safe-area-inset-top))}.play-help{bottom:145px}}
+
+body.studio-active .topbar,body.studio-active .sidebar{display:none}
+body.studio-active .workspace{display:block;min-height:100dvh}
+body.studio-active .main{padding:0;width:100vw;height:100dvh;overflow:hidden}
+body.studio-active .studio{height:100dvh}
+.play-screen{z-index:10000}
+.play-top{position:relative;z-index:10001}
+.play-top button{position:relative;z-index:10002;touch-action:manipulation}
