@@ -20,5 +20,5 @@ body.studio-active .studio{height:100dvh}
 
 .script-head .script-close{margin-left:0;background:#3b444a!important;border:1px solid #59656d!important;color:#fff!important;font-size:15px!important;line-height:1;width:28px;height:24px;padding:0!important}.script-tab{height:38px;background:#dfe5e8;border-top:1px solid #bcc7cc;display:flex;align-items:center;padding:4px 7px}.script-tab button{border:1px solid #b6c2c8;background:#f8fafb;padding:6px 10px;font-size:9px;color:#465761}.script-tab button:hover{background:#e4f2f8;color:#075f96}
 
-.look-pad{display:none;position:absolute;right:0;top:44px;width:52%;height:calc(100% - 44px);z-index:5;touch-action:none}
-@media(max-width:680px){.look-pad{display:block}.joy,.jump{z-index:10}.play-screen canvas{touch-action:none}.ribbon-tabs button{min-width:82px}.ribbon-tabs{overflow-x:auto}}
+.look-pad{display:none;position:absolute;right:0;top:48px;width:55%;height:calc(100% - 48px);z-index:5;touch-action:none}
+@media(max-width:680px){.play-screen .touch{display:block;position:absolute;inset:48px 0 0 0;z-index:20;pointer-events:none}.play-screen .joy,.play-screen .jump{pointer-events:auto}.look-pad{display:block}.joy,.jump{z-index:10}.play-screen canvas{touch-action:none}.ribbon-tabs button{min-width:82px}.ribbon-tabs{overflow-x:auto}}
