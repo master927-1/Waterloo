@@ -6,7 +6,8 @@ create extension if not exists pgcrypto;
 create table if not exists public.profiles (
   id uuid primary key references auth.users(id) on delete cascade,
   username text not null unique check (char_length(username) between 3 and 20),
-  created_at timestamptz not null default now()
+  created_at timestamptz not null default now(),
+  last_seen_at timestamptz
 );
 
 create table if not exists public.friend_requests (
@@ -218,3 +219,16 @@ begin
   return new;
 end;
 $$;
+
+
+create table if not exists public.chat_messages (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null references public.profiles(id) on delete cascade,
+  body text not null check (char_length(body) between 1 and 500),
+  created_at timestamptz not null default now()
+);
+alter table public.chat_messages enable row level security;
+create policy if not exists "chat_select_authenticated" on public.chat_messages for select to authenticated using (true);
+create policy if not exists "chat_insert_own" on public.chat_messages for insert to authenticated with check ((select auth.uid())=user_id);
+create policy if not exists "chat_delete_own" on public.chat_messages for delete to authenticated using ((select auth.uid())=user_id);
+create index if not exists chat_messages_created_idx on public.chat_messages(created_at desc);
