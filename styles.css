@@ -31,3 +31,10 @@ body.studio-active .studio{height:100dvh}
 
 @media(max-width:900px){.logout span{display:none}.logout{min-height:34px;font-size:16px}}
 @media(max-width:680px){body:not(.studio-active) .sidebar{position:relative;min-height:calc(100dvh - 58px)}body:not(.studio-active) .logout{display:block}}
+
+.play-chat-toggle{border:1px solid #fff;background:#fff;color:#075f96;padding:6px 9px;font-size:9px;touch-action:manipulation}
+.play-chat{display:none;position:absolute;right:10px;top:54px;width:min(330px,calc(100vw - 20px));height:min(55vh,430px);background:#fff;border:1px solid #b9c5cb;box-shadow:0 4px 18px #0005;z-index:10020;flex-direction:column;color:#26343e}
+.play-chat.open{display:flex}.play-chat-head{height:34px;background:#f3f6f8;border-bottom:1px solid #d4dde1;padding:0 9px;display:flex;align-items:center}.play-chat-head button{margin-left:auto;border:0;background:transparent;font-size:18px}.play-chat-messages{flex:1;overflow:auto;padding:7px;background:#eef3f6}.play-chat-msg{background:#fff;border:1px solid #d9e1e5;margin-bottom:5px;padding:5px 7px;font-size:9px}.play-chat-msg b{color:#075f96}.play-chat-msg p{margin:2px 0 0;overflow-wrap:anywhere}.play-chat form{display:flex;border-top:1px solid #d4dde1}.play-chat input{flex:1;min-width:0;border:0;padding:9px;outline:0}.play-chat form button{border:0;background:#0879bd;color:#fff;padding:0 12px}
+.play-screen .touch{pointer-events:none}.play-screen .joy,.play-screen .jump{pointer-events:auto}
+@media(max-width:680px){.play-screen .touch{inset:48px 0 0 0;display:block}.play-screen .joy{left:max(18px,env(safe-area-inset-left));bottom:max(18px,env(safe-area-inset-bottom));width:118px;height:118px;display:block;visibility:visible}.play-screen .knob{width:50px;height:50px;left:32px;top:32px}.play-screen .jump{right:max(20px,env(safe-area-inset-right));bottom:max(24px,env(safe-area-inset-bottom));width:88px;height:88px;display:block;visibility:visible}.play-chat{top:58px;right:8px;height:min(62dvh,430px)}.play-chat-toggle{display:block}}
+@media(min-width:681px){.play-chat-toggle{display:none}}
