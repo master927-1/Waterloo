@@ -228,7 +228,7 @@ create table if not exists public.chat_messages (
   created_at timestamptz not null default now()
 );
 alter table public.chat_messages enable row level security;
-create policy if not exists "chat_select_authenticated" on public.chat_messages for select to authenticated using (true);
-create policy if not exists "chat_insert_own" on public.chat_messages for insert to authenticated with check ((select auth.uid())=user_id);
-create policy if not exists "chat_delete_own" on public.chat_messages for delete to authenticated using ((select auth.uid())=user_id);
+drop policy if exists "chat_select_authenticated" on public.chat_messages; create policy "chat_select_authenticated" on public.chat_messages for select to authenticated using (true);
+drop policy if exists "chat_insert_own" on public.chat_messages; create policy "chat_insert_own" on public.chat_messages for insert to authenticated with check ((select auth.uid())=user_id);
+drop policy if exists "chat_delete_own" on public.chat_messages; create policy "chat_delete_own" on public.chat_messages for delete to authenticated using ((select auth.uid())=user_id);
 create index if not exists chat_messages_created_idx on public.chat_messages(created_at desc);
