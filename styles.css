@@ -22,3 +22,9 @@ body.studio-active .studio{height:100dvh}
 
 .look-pad{display:none;position:absolute;right:0;top:48px;width:55%;height:calc(100% - 48px);z-index:5;touch-action:none}
 @media(max-width:680px){.play-screen .touch{display:block;position:absolute;inset:48px 0 0 0;z-index:20;pointer-events:none}.play-screen .joy,.play-screen .jump{pointer-events:auto}.look-pad{display:block}.joy,.jump{z-index:10}.play-screen canvas{touch-action:none}.ribbon-tabs button{min-width:82px}.ribbon-tabs{overflow-x:auto}}
+
+.chat-messages{height:min(62vh,620px);overflow:auto;padding:10px;background:#f5f8fa}
+.chat-msg{display:flex;gap:9px;padding:9px;border-bottom:1px solid #dfe6ea;background:#fff}
+.chat-msg b{font-size:10px}.chat-msg small{margin-left:7px;color:#87949c;font-size:8px}.chat-msg p{margin:4px 0 0;font-size:10px;white-space:pre-wrap;overflow-wrap:anywhere}
+.chat-form{display:flex;gap:8px;padding:12px;border-top:1px solid #d4dde2;background:#f8fafb}.chat-form input{flex:1;min-width:0;padding:9px;border:1px solid #c5cfd5}
+.status-dot{display:inline-block;width:6px;height:6px;border-radius:50%;margin-right:4px;background:#aab3b8}.status-dot.online{background:#39a85a}
